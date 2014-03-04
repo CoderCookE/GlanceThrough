@@ -11,12 +11,14 @@
             <i class="glyphicon glyphicon-trash"></i>
         </a>
         <div data-ng-init="setUp()">
-
-			   <h1>{{splitArticle[i]}}</h1>
+			   <div>
+			   	<h1>{{splitArticle[i]}}</h1>
+			   </div>
 			   <h3>Words Per Minute</h3>
+			   <input type="range" ng-model="speed" min="100" max="2000" step="25" style="width: 140px" class="ng-valid ng-dirty">
+			   	{{speed}}
 
-			    <input type ="text" ng-model = "speed"></input> <br>
-			    <div ng-if="showPlay">
+			   	<div ng-if="showPlay">
 			    <button ng-click="play()" class = "btn-danger">Play</button>
 			    </div>
 			    <div ng-if="!showPlay">

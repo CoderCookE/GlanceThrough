@@ -10,9 +10,9 @@ var mongoose = require('mongoose'),
 /**
  * Article Schema
  */
-function removeNewLine(string){
-	return string.replace(/^-/g," ").replace(/\s{2,}/g," ");
-}
+// function removeNewLine(string){
+// 	return string.replace(/^-/g," ").replace(/\s{2,}/g," ");
+// }
 
 var ArticleSchema = new Schema({
     created: {
@@ -26,7 +26,7 @@ var ArticleSchema = new Schema({
     },
     content: {
         type: String,
-        get: removeNewLine,
+        // get: removeNewLine,
         default: '',
         trim: true
     },
@@ -35,7 +35,7 @@ var ArticleSchema = new Schema({
         ref: 'User'
     }
 });
-ArticleSchema.set('toJSON', { getters: true, virtuals: false });
+// ArticleSchema.set('toJSON', { getters: true, virtuals: false });
 /**
  * Validations
  */

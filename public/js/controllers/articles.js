@@ -59,7 +59,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 
 		$scope.play = function(){
 			$scope.showPlay = !$scope.showPlay;
-			console.log($scope.showPlay)
+		//	console.log($scope.showPlay)
 			if(isNaN($scope.speed)||$scope.speed < 1 || $scope.speed > 5000){
 				$scope.speed = 350;
 			};
@@ -68,16 +68,19 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 		}
 
 		var autoPlay = function(){
-			setInterval(function(){
-			if($scope.i ===  $scope.article.content.split(" ").length - 1){
-				$scope.stop = true;
+			if(!$scope.stop){
+				setTimeout(function(){
+					if($scope.i ===  $scope.splitArticle.length-1){
+						$scope.stop = true;
+					}
+					if(!$scope.stop){
+						$scope.$apply(function(){
+							$scope.i++;
+						});
+					};
+					autoPlay();
+				},(60000/$scope.speed));
 			}
-			if($scope.stop === !true){
-				$scope.$apply(function(){
-					$scope.i++;
-				});
-				};
-			},(60000/$scope.speed));
 		}
 
 		$scope.findOne = function() {
@@ -85,7 +88,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 				articleId: $stateParams.articleId
 			}, function(article) {
 				$scope.article = article;
-				$scope.splitArticle = article.content.split(" ")
+				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\s{2,}/g," ").split(" ");
 			});
     };
 }]);
