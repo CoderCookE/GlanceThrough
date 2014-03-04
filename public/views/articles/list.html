@@ -1,7 +1,10 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
 		<h1>Articles Created By {{global.user.name}}</h1>
 	<ul class="articles unstyled">
-		<div class="pull-right">Search Articles: <input type="text" ng-model="searchFor"></input></div>
+
+		<div class="pull-right">Search Articles: <input type="text" ng-model="searchFor"></input>
+		</div>
+
 		<li ng-if="global.user._id == article.user._id" data-ng-repeat="article in articles | filter:searchFor">
 				<span>{{article.created | date:'medium'}}</span> /
 				<span>{{article.user.name}}</span>

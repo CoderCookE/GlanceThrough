@@ -72,6 +72,12 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 				setTimeout(function(){
 					if($scope.i ===  $scope.splitArticle.length-1){
 						$scope.stop = true;
+						$scope.showPlay = true;
+						setTimeout(function(){
+						$scope.$apply(function(){
+							$scope.i = 0;
+						});
+					},2000);
 					}
 					if(!$scope.stop){
 						$scope.$apply(function(){
