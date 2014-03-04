@@ -1,0 +1,35 @@
+
+<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+    <span>{{article.created | date:'medium'}}</span> /
+    <span>{{article.user.name}}</span>
+    <h2>{{article.title}}</h2>
+    <div data-ng-show="global.user._id == article.user._id">
+        <a class="btn" href="/#!/articles/{{article._id}}/edit">
+        	<i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+        <div data-ng-init="setUp()">
+
+			   <h1>{{splitArticle[i]}}</h1>
+			   <h3>Words Per Minute</h3>
+
+			    <input type ="text" ng-model = "speed"></input> <br>
+			    <div ng-if="showPlay">
+			    <button ng-click="play()" class = "btn-danger">Play</button>
+			    </div>
+			    <div ng-if="!showPlay">
+			    <button ng-click="play()" class = "btn-danger">Stop</button>
+			  	</div>
+			    <br>
+					<div class="progress">
+					  <div id = "bar" class="progress-bar" role="progressbar"aria-valuemin="0" aria-valuemax="100" style="width: {{((i+1)/splitArticle.length) * 100}}%;">
+					  </div>
+
+					</div>
+					 Progress {{i+1}} / {{splitArticle.length}}
+			</div>
+    </div>
+</section>
+
