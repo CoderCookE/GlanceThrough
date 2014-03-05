@@ -19,13 +19,19 @@
 			   <h3>Words Per Minute</h3>
 			   <input type="range" ng-model="speed" min="100" max="2000" step="25" style="width: 140px" class="ng-valid ng-dirty">
 			   	{{speed}}
+			   	<div>
+			   	<span ng-if="showPlay">
+			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default"></button>
+			    </span>
+			    <span ng-if="!showPlay">
+			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default"></button>
+			  	</span>
+			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default"></button>
 
-			   	<div ng-if="showPlay">
-			    <button ng-click="play()" class = "btn-danger">Play</button>
-			    </div>
-			    <div ng-if="!showPlay">
-			    <button ng-click="play()" class = "btn-danger">Stop</button>
-			  	</div>
+			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default"></button>
+
+			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default"></button>
+			  </div>
 			    <br>
 					<div class="progress">
 					  <div id = "bar" class="progress-bar" role="progressbar"aria-valuemin="0" aria-valuemax="100" style="width: {{((i+1)/splitArticle.length) * 100}}%;">
