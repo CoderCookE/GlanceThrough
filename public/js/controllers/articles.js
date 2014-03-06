@@ -107,6 +107,18 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 				});
 		}
 
+		$scope.getByUrl = function(){
+			$http.get('/articles/text?url=' + $scope.urlToCheck)
+				.success(function(response) {
+					$scope.title = response.title;
+					$scope.content = response.text.replace(/\\t/g,' ').replace(/\\n/g,' ').replace(/\\/g,' ').replace(/\s{2,}/g,' ');
+					$scope.urlCheck = false;
+				})
+				.error(function(){
+					$scope.urlCheck = true;
+				});
+		}
+
 		$scope.findOne = function() {
 			Articles.get({
 				articleId: $stateParams.articleId

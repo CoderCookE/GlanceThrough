@@ -6,7 +6,8 @@
 			<div>
 			<label for="urlToCheck" class="col-md-2 control-label">URL</label>
 			<input id = "urlToCheck" type = "text" ng-model="urlToCheck"></input>
-			<span class = "btn btn-default" ng-click="getByUrl('http://www.huffingtonpost.com/2014/03/05/russia-crimea_n_4906488.html')">Fetch</span>
+			<span class = "btn btn-default" ng-click="getByUrl()">Fetch</span>
+			<span ng-if="urlCheck" class="alert alert-danger">Invalid URL</span>
 		</div>
 
 			<label for="title" class="col-md-2 control-label">Title</label>

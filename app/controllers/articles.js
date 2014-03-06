@@ -14,13 +14,15 @@ var mongoose = require('mongoose'),
 
 exports.alchemy = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
-	var alchemy = new AlchemyAPI('<INSERT ACCESS TOKEN HERE>');
-		alchemy.text(req.query.url, {}, function(err, response) {
+	var alchemy = new AlchemyAPI('<Insert Key Here>');
+		alchemy.title(req.query.url, {}, function(err, response) {
 	  if (err) throw err;
-
-	  // See http://www.alchemyapi.com/api/text/htmlc.html for format of returned object
-	  var text = response.text;
-	  res.json(text);
+	  	alchemy.text(req.query.url, {}, function(err, res2) {
+	  		if (err) throw err;
+	  				var title = response.title;
+	  			  var text = res2.text;
+	 				 res.json({title:title, text:text});
+	  	});
 	});
 }
 
