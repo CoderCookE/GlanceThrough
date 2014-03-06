@@ -3,12 +3,28 @@
 
 	<form class="form-horizontal col-md-6" role="form" data-ng-submit="create()">
 		<div class="form-group">
-			<div>
-			<label for="urlToCheck" class="col-md-2 control-label">URL</label>
-			<input id = "urlToCheck" type = "text" ng-model="urlToCheck"></input>
-			<span class = "btn btn-default" ng-click="getByUrl()">Fetch</span>
-			<span ng-if="urlCheck" class="alert alert-danger">Invalid URL</span>
-		</div>
+			<div ng-if="urlCheck" class="alert alert-danger">Invalid URL</div>
+			<div class = "md-col-10">
+				<label for="urlToCheck" class="col-md-2 control-label">URL</label>
+			</div>
+
+			<div class="col-md-10">
+				<input id = "urlToCheck" type = "text" class="form-control"  ng-model="urlToCheck"></input>
+			</div>
+
+			<div class="col-md-10">
+				<span class = "btn btn-default" ng-click="getByUrl()">Fetch Article</span>
+				<span class = "btn btn-default" ng-click="getSummary()">Fetch Summary</span>
+				<input type="range" ng-model="summaryLength" ng-init="summaryLength=2"min="1" max="3" step="1" style="width: 140px" class="ng-valid ng-dirty" id = "sumLengthSlider" label ="test"></input>
+
+
+				<span ng-if="summaryLength==1">Short</span>
+				<span ng-if="summaryLength==2">Medium</span>
+				<span ng-if="summaryLength==3">Long</span>
+
+
+
+			</div>
 
 			<label for="title" class="col-md-2 control-label">Title</label>
 			<div class="col-md-10">

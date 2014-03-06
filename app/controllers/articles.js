@@ -14,17 +14,23 @@ var mongoose = require('mongoose'),
 
 exports.alchemy = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
-	var alchemy = new AlchemyAPI('<Insert Key Here>');
+	var alchemy = new AlchemyAPI('<INSERT API KEY>');
 		alchemy.title(req.query.url, {}, function(err, response) {
 	  if (err) throw err;
 	  	alchemy.text(req.query.url, {}, function(err, res2) {
 	  		if (err) throw err;
+		  	alchemy.keywords(req.query.url, {}, function(err, res3) {
+		  		if (err) throw err;
 	  				var title = response.title;
 	  			  var text = res2.text;
-	 				 res.json({title:title, text:text});
+	  			  var keywords = res3.keywords;
+	 				 res.json({title:title, text:text, keywords:keywords});
+		  	});
 	  	});
 	});
 }
+
+
 
 exports.article = function(req, res, next, id) {
     Article.load(id, function(err, article) {

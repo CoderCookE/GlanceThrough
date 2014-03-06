@@ -118,7 +118,33 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 					$scope.urlCheck = true;
 				});
 		}
+		$scope.getSummary = function(){
+			$http.get('/articles/text?url=' + $scope.urlToCheck)
+				.success(function(response) {
+					$scope.title = "SUMMARIZED: " + response.title;
+					var arrayOfWords = [];
 
+					for(var i = 0; i<(3*$scope.summaryLength);i++){
+						arrayOfWords.push(response.keywords[i].text)
+					}
+					var fullArticleArray = response.text.replace(/\\t/g,' ').replace(/\\n/g,' ').replace(/\\/g,' ').replace(/\s{2,}/g,' ').split(".");
+					var summarizedArticle = [];
+					for(var sentence in fullArticleArray){
+						for(var word in arrayOfWords){
+							if(fullArticleArray[sentence].toString().indexOf(arrayOfWords[word].toString()) !== -1){
+								summarizedArticle.push(fullArticleArray[sentence]);
+								break;
+							}
+						}
+					}
+
+					$scope.content = summarizedArticle.join(".");
+					$scope.urlCheck = false;
+				})
+				.error(function(){
+					$scope.urlCheck = true;
+				});
+		}
 		$scope.findOne = function() {
 			Articles.get({
 				articleId: $stateParams.articleId
