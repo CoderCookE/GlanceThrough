@@ -11,6 +11,19 @@ var mongoose = require('mongoose'),
 /**
  * Find article by id
  */
+
+exports.alchemy = function(req, res){
+	var AlchemyAPI = require('alchemy-api');
+	var alchemy = new AlchemyAPI('<INSERT ACCESS TOKEN HERE>');
+		alchemy.text(req.query.url, {}, function(err, response) {
+	  if (err) throw err;
+
+	  // See http://www.alchemyapi.com/api/text/htmlc.html for format of returned object
+	  var text = response.text;
+	  res.json(text);
+	});
+}
+
 exports.article = function(req, res, next, id) {
     Article.load(id, function(err, article) {
         if (err) return next(err);

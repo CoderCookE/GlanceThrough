@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('mean.articles').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Global', 'Articles', function ($scope, $stateParams, $location, Global, Articles) {
+angular.module('mean.articles').controller('ArticlesController', ['$http','$scope', '$stateParams', '$location', 'Global', 'Articles',function ($http, $scope, $stateParams, $location, Global, Articles) {
     $scope.global = Global;
 
     $scope.create = function() {
         var article = new Articles({
             title: this.title,
-            content: this.content
+            content: this.content.replace(/\n/g,"\n\n")
         });
         article.$save(function(response) {
             $location.path('articles/' + response._id);
@@ -100,13 +100,19 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 				},(60000/$scope.speed));
 			}
 		}
+		$scope.getByUrl = function(){
+			$http.get('/articles/text?url=' + $scope.urlToCheck)
+				.success(function(response) {
+					$scope.content = response;
+				});
+		}
 
 		$scope.findOne = function() {
 			Articles.get({
 				articleId: $stateParams.articleId
 			}, function(article) {
 				$scope.article = article;
-				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\s{2,}/g," ").split(" ");
+				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
 			});
     };
 }]);
