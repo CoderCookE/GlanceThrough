@@ -100,14 +100,12 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 				},(60000/$scope.speed));
 			}
 		}
-		$scope.getByUrl = function(){
-			$http.get('/articles/text?url=' + $scope.urlToCheck)
-				.success(function(response) {
-					$scope.content = response;
-				});
-		}
 
 		$scope.getByUrl = function(){
+			if($scope.urlToCheck !== $('#urlToCheck').val()){
+				$scope.urlToCheck = $('#urlToCheck').val();
+			}
+
 			$http.get('/articles/text?url=' + $scope.urlToCheck)
 				.success(function(response) {
 					$scope.title = response.title;

@@ -11,10 +11,37 @@ var mongoose = require('mongoose'),
 /**
  * Find article by id
  */
-
+exports.bookmarklet = function(req, res){
+	var AlchemyAPI = require('alchemy-api');
+	var alchemy = new AlchemyAPI('<insert api key>');
+		alchemy.title(req.query.url, {}, function(err, response) {
+	  if (err) throw err;
+	  	alchemy.text(req.query.url, {}, function(err, res2) {
+	  		if (err) throw err;
+		  	alchemy.keywords(req.query.url, {}, function(err, res3) {
+		  		if (err) throw err;
+	  				var title = response.title;
+	  			  var text = res2.text;
+	  			  var keywords = res3.keywords;
+	  			  var article = new Article({title: title, content:text});
+    				article.user = req.user;
+    				article.save(function(err) {
+			        if (err) {
+			            return res.send('users/signup', {
+			                errors: err.errors,
+			                article: article
+			            });
+			        } else {
+			            res.jsonp(article);
+			        }
+			    });
+		  	});
+	  	});
+	});
+}
 exports.alchemy = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
-	var alchemy = new AlchemyAPI('<INSERT API KEY>');
+	var alchemy = new AlchemyAPI('<insert api key>');
 		alchemy.title(req.query.url, {}, function(err, response) {
 	  if (err) throw err;
 	  	alchemy.text(req.query.url, {}, function(err, res2) {

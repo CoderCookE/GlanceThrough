@@ -5,7 +5,8 @@
 			<span class="pull-right">Search Articles: <input type="text" ng-model="searchFor"></input>
 			</span>
 		</div>
-
+		<br>
+		<br>
 		<div>
 			<ul class="articles unstyled">
 				<li ng-if="global.user._id == article.user._id" data-ng-repeat="article in articles | filter:global.user._id |filter:searchFor">
