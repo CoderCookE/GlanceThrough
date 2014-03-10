@@ -21,13 +21,16 @@ var jqueryInject = document.createElement('script');
 
 				var iframeDiv = document.createElement('div');
 				iframeDiv.setAttribute('id', 'iframeDiv')
+				iframeDiv.setAttribute('width', '80%');
+				iframeDiv.setAttribute('height', '350px');
 				document.getElementsByTagName('body')[0].appendChild(iframeDiv);
+
 
 				setTimeout(function(){
 					document.getElementsById('iframeDiv')[0].appendChild(articleIframe);
 
-					$('#dialog').bPopup({
+					$('#iframeDiv').bPopup({
 						followSpeed: 'fast',
-						onClose: function() {$('#dialog').remove()}
+						onClose: function() {$('#iframeDiv').remove()}
 					});
 				},400)
