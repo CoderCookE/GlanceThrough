@@ -19,8 +19,12 @@ var jqueryInject = document.createElement('script');
 				articleIframe.setAttribute('width', '80%');
 				articleIframe.setAttribute('height', '350px');
 
+				var iframeDiv = document.createElement('div');
+				iframeDiv.setAttribute('id', 'iframeDiv')
+				document.getElementsByTagName('body')[0].appendChild(iframeDiv);
+
 				setTimeout(function(){
-					document.getElementsByTagName('body')[0].appendChild(articleIframe);
+					document.getElementsById('iframeDiv')[0].appendChild(articleIframe);
 
 					$('#dialog').bPopup({
 						followSpeed: 'fast',
