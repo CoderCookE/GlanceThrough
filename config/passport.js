@@ -53,7 +53,6 @@ module.exports = function(passport) {
             });
         }
     ));
-
     // Use twitter strategy
     passport.use(new TwitterStrategy({
             consumerKey: config.twitter.clientID,

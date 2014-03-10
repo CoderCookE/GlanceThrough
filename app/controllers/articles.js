@@ -7,10 +7,6 @@ var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     _ = require('lodash');
 
-
-/**
- * Find article by id
- */
 exports.bookmarklet = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
 	var alchemy = new AlchemyAPI('<insert api key>');
@@ -23,7 +19,7 @@ exports.bookmarklet = function(req, res){
 	  				var title = response.title;
 	  			  var text = res2.text;
 	  			  var keywords = res3.keywords;
-	  			  var article = new Article({title: title, content:text});
+	  			  var article = new Article({url:req.query.url, title: title, content:text});
     				article.user = req.user;
     				article.save(function(err) {
 			        if (err) {
@@ -39,6 +35,7 @@ exports.bookmarklet = function(req, res){
 	  	});
 	});
 }
+
 exports.alchemy = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
 	var alchemy = new AlchemyAPI('<insert api key>');
@@ -57,8 +54,9 @@ exports.alchemy = function(req, res){
 	});
 }
 
-
-
+/**
+ * Find article by id
+ */
 exports.article = function(req, res, next, id) {
     Article.load(id, function(err, article) {
         if (err) return next(err);

@@ -1,3 +1,19 @@
-<div>
-	this is a test page
-</div>
+<section data-ng-controller="ArticlesController">
+		<div ng-if="global.user._id">
+		<h1><i class = "icon-spin"> <i class = "glyphicon glyphicon-refresh"></i></i> Loading...</h1>
+	</div>
+	<div ng-if="!global.user._id">
+		<div> <h1>Please <a href ="/signin">Sign In</a> and Try Again.</h1>
+	</div>
+</section>
+
+<section data-ng-controller="ArticlesController" data-ng-init="delayFind()">
+		<div ng-show='false'>
+			<ul class="articles unstyled">
+				<li ng-if="global.user._id == article.user._id" data-ng-repeat="article in articles | filter:global.user._id |filter:searchFor">
+						<h2><a id = "link" data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h2>
+						<script>$('#link').click();</script>
+				</li>
+			</ul>
+		</div>
+</section>

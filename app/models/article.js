@@ -10,14 +10,18 @@ var mongoose = require('mongoose'),
 /**
  * Article Schema
  */
-// function removeNewLine(string){
-// 	return string.replace(/^-/g," ").replace(/\s{2,}/g," ");
+// function removeCharacters(string){
+// 	return string.replace(/"yahoo"/g," ").replace(/\s{2,}/g," ");
 // }
 
 var ArticleSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
+    },
+    url:{
+    	type: String,
+    	// getter: removeCharacters
     },
     title: {
         type: String,
@@ -35,7 +39,7 @@ var ArticleSchema = new Schema({
         ref: 'User'
     }
 });
-// ArticleSchema.set('toJSON', { getters: true, virtuals: false });
+ArticleSchema.set('toJSON', { getters: true, virtuals: false });
 /**
  * Validations
  */

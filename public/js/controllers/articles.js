@@ -45,9 +45,17 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
     };
 
     $scope.find = function() {
-        Articles.query(function(articles) {
-            $scope.articles = articles;
-        });
+    	Articles.query(function(articles) {
+				$scope.articles = articles;
+			});
+    };
+
+   $scope.delayFind = function() {
+    	setTimeout(function(){
+    		Articles.query(function(articles) {
+					$scope.articles = articles;
+				});
+			},3700);
     };
 
     $scope.setUp = function(){
@@ -146,6 +154,15 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 		$scope.findOne = function() {
 			Articles.get({
 				articleId: $stateParams.articleId
+			}, function(article) {
+				$scope.article = article;
+				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
+			});
+    };
+
+    $scope.findByUrl = function() {
+			Articles.get({
+				articlesUrl: $stateParams.articleUrl
 			}, function(article) {
 				$scope.article = article;
 				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
