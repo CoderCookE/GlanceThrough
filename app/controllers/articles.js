@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     _ = require('lodash');
 
-var AlchemyKey = 'api key';
+var AlchemyKey = 'd37802f2eff772d7ff43aec9bd2e6c3d32c4bc68';
 
 exports.bookmarklet = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
