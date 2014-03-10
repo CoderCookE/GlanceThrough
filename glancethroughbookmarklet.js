@@ -25,9 +25,8 @@ var jqueryInject = document.createElement('script');
 				iframeDiv.setAttribute('height', '350px');
 				document.getElementsByTagName('body')[0].appendChild(iframeDiv);
 
-
 				setTimeout(function(){
-					document.getElementsById('iframeDiv')[0].appendChild(articleIframe);
+					document.getElementById('iframeDiv')[0].appendChild(articleIframe);
 
 					$('#iframeDiv').bPopup({
 						followSpeed: 'fast',
