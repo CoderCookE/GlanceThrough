@@ -1,4 +1,13 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
+
+			<b>Bookmarklet</b>
+			<a class = 'btn btn-warning' href = "javascript:
+			var myScript = document.createElement('script');
+			myScript.setAttribute('src', 'https://raw.github.com/CoderCookE/GlanceThrough/master/glancethroughbookmarklet.js');
+			document.body.appendChild(myScript);
+
+			">Add to GlanceThrough</a> Drag and Drop to Bookmarks Bar
+
 		<h1>Articles Created By {{global.user.name}}</h1>
 
 		<div class = "col-md-10">
