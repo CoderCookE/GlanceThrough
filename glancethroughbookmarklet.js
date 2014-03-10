@@ -5,7 +5,7 @@ var jqueryInject = document.createElement('script');
 				bPopupInject.setAttribute('src','https://raw.github.com/dinbror/bpopup/master/jquery.bpopup.min.js');
 				document.getElementsByTagName('body')[0].appendChild(bPopupInject);
 
-				var foundArticle = ('http://localhost:3000/articles/bookmarklet?url='+ encodeURIComponent(window.location));
+				var foundArticle = ('http://glancethrough.herokuapp.com/#!/articles/bookmarklet?url='+ encodeURIComponent(window.location));
 
 				var createArticle = document.createElement('img');
 				createArticle.setAttribute('src', foundArticle);
