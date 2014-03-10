@@ -19,16 +19,10 @@ var jqueryInject = document.createElement('script');
 				articleIframe.setAttribute('width', '80%');
 				articleIframe.setAttribute('height', '350px');
 
-				var iframeDiv = document.createElement('div');
-				iframeDiv.setAttribute('id', 'iframeDiv')
-				iframeDiv.setAttribute('width', '80%');
-				iframeDiv.setAttribute('height', '350px');
-				document.getElementsByTagName('body')[0].appendChild(iframeDiv);
-
 				setTimeout(function(){
-					document.getElementById('iframeDiv').appendChild(articleIframe);
+					document.getElementsByTagName('body')[0].appendChild(articleIframe);
 
-					$('#iframeDiv').bPopup({
+					$('#articleIframe').bPopup({
 						followSpeed: 'fast',
 						onClose: function() {$('#iframeDiv').remove()}
 					});
