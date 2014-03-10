@@ -13,7 +13,7 @@ var jqueryInject = document.createElement('script');
 				createArticle.remove();
 
 				var articleIframe = document.createElement('iframe');
-				articleIframe.setAttribute('src', 'http://localhost:3000/#!/testpage');
+				articleIframe.setAttribute('src', 'http://glancethrough.info/#!/testpage');
 
 				articleIframe.setAttribute('id', 'dialog');
 				articleIframe.setAttribute('width', '80%');
