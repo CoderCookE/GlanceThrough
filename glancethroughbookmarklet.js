@@ -1,7 +1,6 @@
 var jqueryInject = document.createElement('script');
 				jqueryInject.setAttribute('src','http://code.jquery.com/jquery-1.10.2.js');
 				document.getElementsByTagName('body')[0].appendChild(jqueryInject);
-
 				var bPopupInject = document.createElement('script');
 				bPopupInject.setAttribute('src','https://raw.github.com/dinbror/bpopup/master/jquery.bpopup.min.js');
 				document.getElementsByTagName('body')[0].appendChild(bPopupInject);

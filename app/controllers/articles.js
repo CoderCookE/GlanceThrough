@@ -7,9 +7,11 @@ var mongoose = require('mongoose'),
     Article = mongoose.model('Article'),
     _ = require('lodash');
 
+var AlchemyKey = '<insert key>'
+
 exports.bookmarklet = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
-	var alchemy = new AlchemyAPI('<insert api key>');
+	var alchemy = new AlchemyAPI(AlchemyKey);
 		alchemy.title(req.query.url, {}, function(err, response) {
 	  if (err) throw err;
 	  	alchemy.text(req.query.url, {}, function(err, res2) {
@@ -38,7 +40,7 @@ exports.bookmarklet = function(req, res){
 
 exports.alchemy = function(req, res){
 	var AlchemyAPI = require('alchemy-api');
-	var alchemy = new AlchemyAPI('<insert api key>');
+	var alchemy = new AlchemyAPI(AlchemyKey);
 		alchemy.title(req.query.url, {}, function(err, response) {
 	  if (err) throw err;
 	  	alchemy.text(req.query.url, {}, function(err, res2) {
