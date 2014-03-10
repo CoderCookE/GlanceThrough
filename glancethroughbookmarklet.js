@@ -22,7 +22,7 @@ var jqueryInject = document.createElement('script');
 				setTimeout(function(){
 					document.getElementsByTagName('body')[0].appendChild(articleIframe);
 
-					$('#articleIframe').bPopup({
+					$('#dialog').bPopup({
 						followSpeed: 'fast',
 						onClose: function() {$('#iframeDiv').remove()}
 					});
