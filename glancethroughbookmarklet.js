@@ -28,4 +28,6 @@ if ( document.readyState === "complete" ) {
 		onClose: function() {$('#iframeDiv').remove()}
 		});
 	},400)
+}else{
+	alert("Please wait for page to load and try again.")
 }
