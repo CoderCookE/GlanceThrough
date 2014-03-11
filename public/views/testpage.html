@@ -12,7 +12,10 @@
 			<ul class="articles unstyled">
 				<li ng-if="global.user._id == article.user._id" data-ng-repeat="article in articles | filter:global.user._id |filter:searchFor">
 						<h2><a id = "link" data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h2>
-						<script>$('#link').click();</script>
+						<script>
+							$(document).ready(function() {
+								$('#link').click();
+							});</script>
 				</li>
 			</ul>
 		</div>
