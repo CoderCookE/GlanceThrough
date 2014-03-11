@@ -1,7 +1,4 @@
 'use strict';
-var cheerio = require('cheerio'),
-	$ = cheerio.load('<a href>...</a>');
-
 module.exports = function(app) {
 
     // Home route
