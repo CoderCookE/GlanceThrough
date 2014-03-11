@@ -1,4 +1,4 @@
-<section data-ng-hide="global.user">
+<section data-ng-controller="ArticlesController" ng-show="!global.user">
 <h1> Please <a href="/signin">Sign In</a> or <a href="/signup">Sign Up</a> </h1>
 </section>
 
