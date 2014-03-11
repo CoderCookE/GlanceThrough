@@ -20,7 +20,7 @@
 			<ul class="articles unstyled">
 				<li data-ng-repeat="article in articles | filter:searchFor">
 						<span>{{article.created | date:'medium'}}</span> /
-						<span>{{article.user.name}}</span>
+						<span>{{article.user.username}}</span>
 						<h2><a data-ng-href="#!/articles/{{article._id}}">{{article.title}}</a></h2>
 						<div>{{article.content.substring(0,500) + "..."}}</div>
 				</li>
