@@ -6,8 +6,8 @@ module.exports = {
         name: 'GlanceThrough'
     },
     facebook: {
-        clientID: 'APP_ID',
-        clientSecret: 'APP_SECRET',
+        clientID: '1389136721306914',
+        clientSecret: 'b4ef81f255cc0af33d9d778760091284',
         callbackURL: 'http://localhost:3000/auth/facebook/callback'
     },
     twitter: {

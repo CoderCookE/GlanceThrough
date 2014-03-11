@@ -11,6 +11,11 @@ This app requires the alchemy api for the autofill to work.  A key can be gotten
 * Create a summarized version of the article when providing a url.
 * Bookmarklet to allow users to create articles and provide and overly to GlanceThrough the article on another page.
 
+###Known Bugs
+* Firefox doesn't work with bookmarklet
+* Bookmarklet Occasionally doesn't load current Article, but previously created article instead.
+* Auto-summarize will cut off sentence that contain abbreviations.
+
 ### Optional
 * Grunt - Download and Install [Grunt](http://gruntjs.com).
 

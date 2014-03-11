@@ -159,14 +159,5 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
 			});
     };
-
-    $scope.findByUrl = function() {
-			Articles.get({
-				articlesUrl: $stateParams.articleUrl
-			}, function(article) {
-				$scope.article = article;
-				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
-			});
-    };
 }]);
 
