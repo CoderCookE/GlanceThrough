@@ -67,10 +67,14 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 
 		$scope.step = function(arg){
 			if(arg === "prev"){
+				$scope.stop = true;
+				$scope.showPlay = true;
 				if($scope.i !== 0){
 					$scope.i--;
 				}
 			}else{
+				$scope.stop = true;
+				$scope.showPlay = true;
 				if($scope.i !== $scope.splitArticle.length-1){
 					$scope.i++;
 				}
