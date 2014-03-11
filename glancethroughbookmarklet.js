@@ -1,4 +1,3 @@
-if ( document.readyState === "complete" ) {
 	var jqueryInject = document.createElement('script');
 	jqueryInject.setAttribute('src','http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js');
 	document.getElementsByTagName('body')[0].appendChild(jqueryInject);
@@ -32,6 +31,3 @@ if ( document.readyState === "complete" ) {
 	  }
 	}
 	setTimeout(openPopup,400)
-}else{
-	alert("Please wait for page to load and try again.")
-}
