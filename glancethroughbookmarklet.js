@@ -1,4 +1,3 @@
-function injector (){
 	if ( document.readyState === "complete" ) {
 		var jqueryInject = document.createElement('script');
 		jqueryInject.setAttribute('src','http://code.jquery.com/jquery-1.10.2.js');
@@ -34,6 +33,3 @@ function injector (){
 			injector();
 		},200);
 	}
-};
-
-injector();
