@@ -5,7 +5,7 @@ var jqueryInject = document.createElement('script');
 				bPopupInject.setAttribute('src','https://raw.github.com/dinbror/bpopup/master/jquery.bpopup.min.js');
 				document.getElementsByTagName('body')[0].appendChild(bPopupInject);
 
-				var foundArticle = ('http://glancethrough.herokuapp.com/#!/articles/bookmarklet?url='+ encodeURIComponent(window.location));
+				var foundArticle = ('http://glancethrough.info/#!/articles/bookmarklet?url='+ encodeURIComponent(window.location));
 
 				var createArticle = document.createElement('img');
 				createArticle.setAttribute('src', foundArticle);
@@ -13,7 +13,7 @@ var jqueryInject = document.createElement('script');
 				createArticle.remove();
 
 				var articleIframe = document.createElement('iframe');
-				articleIframe.setAttribute('src', 'http://glancethrough.herokuapp.com/#!/testpage');
+				articleIframe.setAttribute('src', 'http://glancethrough.info/#!/testpage');
 
 				articleIframe.setAttribute('id', 'dialog');
 				articleIframe.setAttribute('width', '80%');
