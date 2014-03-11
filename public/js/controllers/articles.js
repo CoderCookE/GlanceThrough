@@ -72,6 +72,15 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 				if($scope.i !== 0){
 					$scope.i--;
 				}
+			}else if(arg === "prevSent"){
+				$scope.stop = true;
+				$scope.showPlay = true;
+				if($scope.i !== 0){
+					$scope.i--;
+					while($scope.splitArticle[$scope.i].indexOf(".")==-1 && $scope.i !== 0 ){
+						$scope.i--;
+					}
+				}
 			}else{
 				$scope.stop = true;
 				$scope.showPlay = true;
@@ -160,7 +169,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 				articleId: $stateParams.articleId
 			}, function(article) {
 				$scope.article = article;
-				$scope.splitArticle = article.content.replace(/^-/g," ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
+				$scope.splitArticle = article.content.replace(/-/g," ").replace(/\s/g, "  ").replace(/\n/g," ").replace(/\s{2,}/g," ").split(" ");
 			});
     };
 }]);

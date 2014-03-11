@@ -21,15 +21,18 @@
 			   <input type="range" ng-model="speed" min="100" max="2000" step="25" style="width: 140px" class="ng-valid ng-dirty">
 			   	{{speed}}
 			   	<div>
+			  	<button ng-click="step('prevSent')" class = "glyphicon glyphicon-fast-backward btn btn-default"></button>
+			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default"></button>
+
 			   	<span ng-if="showPlay">
 			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default"></button>
 			    </span>
 			    <span ng-if="!showPlay">
 			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default"></button>
 			  	</span>
-			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default"></button>
 
 			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default"></button>
+<!-- 			  	<button ng-click="step()" class = "glyphicon glyphicon-fast-forward btn btn-default"></button> -->
 
 			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default"></button>
 			  	<div id="#bottom"></div>
