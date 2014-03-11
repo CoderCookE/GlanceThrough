@@ -1,4 +1,8 @@
-<section data-ng-controller="ArticlesController">
+<section data-ng-hide="global.user">
+<h1> Please <a href="/signin">Sign In</a> or <a href="/signup">Sign Up</a>
+</section>
+
+<section data-ng-controller="ArticlesController" data-ng-show="global.user" >
 	<form class="form-horizontal col-lg-6" role="form" data-ng-submit="create()">
 		<b>Bookmarklet</b>
 			<a class = 'btn btn-warning' href = "javascript:

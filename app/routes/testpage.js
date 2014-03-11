@@ -5,5 +5,4 @@ module.exports = function(app) {
     var testpage = require('../controllers/testpage');
     app.get('/testpage', testpage.render);
     app.get('/testpage/:articleUrl', testpage.show);
-
 };
