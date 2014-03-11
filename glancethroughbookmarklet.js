@@ -28,10 +28,12 @@ var injector = function(){
 			followSpeed: 'fast',
 			onClose: function() {$('#iframeDiv').remove()}
 			});
-		},400)
+		},500)
 	}else{
 		setTimeout(function()){
 			injector();
 		},200);
 	}
-}();
+};
+
+injector();
