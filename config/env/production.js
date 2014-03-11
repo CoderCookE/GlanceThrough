@@ -8,7 +8,7 @@ module.exports = {
     facebook: {
         clientID: '1389136721306914',
         clientSecret: 'b4ef81f255cc0af33d9d778760091284',
-        callbackURL: 'http://www.glancethrough.info/auth/facebook/callback:'
+        callbackURL: 'http://www.glancethrough.info/auth/facebook/callback'
     },
     twitter: {
         clientID: 'CONSUMER_KEY',
