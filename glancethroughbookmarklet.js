@@ -19,14 +19,16 @@
 	articleIframe.setAttribute('width', '80%');
 	articleIframe.setAttribute('height', '350px');
 	var openPopup = function(){
+		console.log("Running open popup");
 		if(typeof $("#dialog").bPopup !== "undefined") {
 	document.getElementsByTagName('body')[0].appendChild(articleIframe);
-
+			console.log("bPopup defined, injecting");
 	$('#dialog').bPopup({
 		followSpeed: 'fast',
 		onClose: function() {$('#iframeDiv').remove()}
 		});
 	  } else {
+	  	console.log("bPopup undefined, waiting 400");
 	  	setTimeout(openPopup, 400);
 	  }
 	}
