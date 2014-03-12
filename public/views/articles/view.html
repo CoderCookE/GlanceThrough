@@ -1,6 +1,6 @@
 
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-    <span>{{article.created | date:'medium'}} - {{article.title}}</span> /
+    <span>{{article.created | date:'medium'}} - </span>
     <span>{{article.user.username}}</span>
 
     <div data-ng-show="global.user._id == article.user._id">
@@ -44,7 +44,7 @@
 					</div>
 					 Progress {{i+1}} / {{splitArticle.length}}
 			</div>
-					 {{article.url}}
+			{{article.title}} {{article.url}}
     </div>
 </section>
 
