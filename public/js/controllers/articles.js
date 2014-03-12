@@ -2,6 +2,9 @@
 
 angular.module('mean.articles').controller('ArticlesController', ['$http','$scope', '$stateParams', '$location', 'Global', 'Articles',function ($http, $scope, $stateParams, $location, Global, Articles) {
     $scope.global = Global;
+    $scope.$on('$viewContentLoaded', function(event) {
+   		$window._gaq.push(['_trackPageview', $location.path()]);
+  	});
 
     $scope.create = function() {
         var article = new Articles({
@@ -63,9 +66,6 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 			$scope.i = 0;
 			$scope.stop = true;
 			$scope.showPlay = true;
-			$scope.$on('$viewContentLoaded', function(event) {
-   			$window._gaq.push(['_trackPageview', $location.path()]);
-  		});
 		};
 
 		$scope.step = function(arg){
