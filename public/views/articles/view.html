@@ -13,28 +13,27 @@
        </div>
        <div>
         <div data-ng-init="setUp()">
-			   <div>
-			   	<h1>{{splitArticle[i]}}</h1>
-
-			   </div>
-			   <h3>Words Per Minute</h3>
-			   <input type="range" ng-model="speed" min="100" max="2000" step="25" style="width: 140px" class="ng-valid ng-dirty">
+        <h2>Words Per Minute</h2>
+			   <input type="range" ng-model="speed" min="100" max="2000" step="25" style="width: 200px" class="ng-valid ng-dirty">
 			   	{{speed}}
+			   <div>
+			   	<pre><h1>{{splitArticle[i]}}</h1></pre>
+			   </div>
 			   	<div>
-			  	<button ng-click="step('prevSent')" class = "glyphicon glyphicon-fast-backward btn btn-default"></button>
-			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default"></button>
+			  	<button ng-click="step('prevSent')" class = "glyphicon glyphicon-fast-backward btn btn-default" style="font-size:40px;"></button>
+			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default" style="font-size:40px;"></button>
 
 			   	<span ng-if="showPlay">
-			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default"></button>
+			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default" style="font-size:40px;"></button>
 			    </span>
 			    <span ng-if="!showPlay">
-			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default"></button>
+			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default"style="font-size:40px;"></button>
 			  	</span>
 
-			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default"></button>
+			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default"style="font-size:40px;"></button>
 <!-- 			  	<button ng-click="step()" class = "glyphicon glyphicon-fast-forward btn btn-default"></button> -->
 
-			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default"></button>
+<!-- 			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default" style="font-size:40px;"></button> -->
 			  	<div id="#bottom"></div>
 			  </div>
 			    <br>
