@@ -1,8 +1,6 @@
-
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
     <span>{{article.created | date:'medium'}} - </span>
     <span>{{article.user.username}}</span>
-
     <div data-ng-show="global.user._id == article.user._id">
         <a class="btn" href="/#!/articles/{{article._id}}/edit">
         	<i class="glyphicon glyphicon-edit"></i>
@@ -20,21 +18,20 @@
 			   	<pre><h1>{{splitArticle[i]}}</h1></pre>
 			   </div>
 			   	<div>
-			  	<button ng-click="step('prevSent')" class = "glyphicon glyphicon-fast-backward btn btn-default" style="font-size:40px;"></button>
-			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default" style="font-size:40px;"></button>
+			  	<button ng-click="step('prevSent')" class = "glyphicon glyphicon-fast-backward btn btn-default bigBtn"></button>
+			  	<button ng-click="step('prev')" class = "glyphicon glyphicon-step-backward btn btn-default bigBtn"></button>
 
 			   	<span ng-if="showPlay">
-			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default" style="font-size:40px;"></button>
+			    <button ng-click="play()" class = "glyphicon glyphicon-play btn btn-default bigBtn bigBtn" ></button>
 			    </span>
 			    <span ng-if="!showPlay">
-			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default"style="font-size:40px;"></button>
+			    <button ng-click="play()" class = "glyphicon glyphicon-pause btn btn-default bigBtn"></button>
 			  	</span>
 
-			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default"style="font-size:40px;"></button>
-<!-- 			  	<button ng-click="step()" class = "glyphicon glyphicon-fast-forward btn btn-default"></button> -->
+			  	<button ng-click="step()" class = "glyphicon glyphicon-step-forward btn btn-default bigBtn"></button>
+<!-- 			  	<button ng-click="step()" class = "glyphicon glyphicon-fast-forward btn btn-default bigBtn"></button> -->
 
-<!-- 			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default" style="font-size:40px;"></button> -->
-			  	<div id="#bottom"></div>
+<!-- 			  	<button ng-click="i = 0" class = "glyphicon glyphicon-repeat btn btn-default bigBtn" ></button> -->
 			  </div>
 			    <br>
 					<div class="progress">
