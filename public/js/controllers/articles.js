@@ -63,6 +63,9 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
 			$scope.i = 0;
 			$scope.stop = true;
 			$scope.showPlay = true;
+			$scope.$on('$viewContentLoaded', function(event) {
+   			$window._gaq.push(['_trackPageview', $location.path()]);
+  		});
 		};
 
 		$scope.step = function(arg){
