@@ -30,7 +30,7 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', fu
 	articleIframe.setAttribute('src', 'http://www.glancethrough.info/#!/testpage');
 
 	articleIframe.setAttribute('id', 'dialog');
-	articleIframe.setAttribute('width', '80%');
+	articleIframe.setAttribute('width', '90%');
 	articleIframe.setAttribute('height', '350px');
 	var openPopup = function(){
 		console.log("Running open popup");
