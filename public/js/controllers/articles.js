@@ -2,6 +2,7 @@
 
 angular.module('mean.articles').controller('ArticlesController', ['$http','$scope', '$stateParams', '$location', 'Global', 'Articles',function ($http, $scope, $stateParams, $location, Global, Articles) {
     $scope.global = Global;
+
     $scope.$on('$viewContentLoaded', function(event) {
    		$window._gaq.push(['_trackPageview', $location.path()]);
   	});
@@ -62,7 +63,9 @@ angular.module('mean.articles').controller('ArticlesController', ['$http','$scop
     };
 
     $scope.setUp = function(){
-			$scope.speed = 350;
+    	if(isNaN($scope.speed)){
+    		$scope.speed = 350;
+    	}
 			$scope.i = 0;
 			$scope.stop = true;
 			$scope.showPlay = true;

@@ -9,8 +9,8 @@
         <a class="btn" data-ng-click="remove();">
             <i class="glyphicon glyphicon-trash"></i>
         </a>
-        <span>{{article.created | date:'medium'}}</span>
        </div>
+
        <div>
         <div data-ng-init="setUp()">
         <h2>Words Per Minute</h2>
@@ -44,6 +44,7 @@
 					 Progress {{i+1}} / {{splitArticle.length}}
 			</div>
 			<span>Article Created By: {{article.user.username}} </span>
+			<div>{{article.created | date:'medium'}}</div>
 			<div>{{article.url}}</div>
     </div>
 </section>
