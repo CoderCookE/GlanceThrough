@@ -1,6 +1,7 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-    <span>{{article.created | date:'medium'}} - </span>
-    <span>{{article.user.username}}</span>
+
+    <span> {{article.title.substring(0,33) + "..."}} </span>
+
     <div data-ng-show="global.user._id == article.user._id">
         <a class="btn" href="/#!/articles/{{article._id}}/edit">
         	<i class="glyphicon glyphicon-edit"></i>
@@ -8,6 +9,7 @@
         <a class="btn" data-ng-click="remove();">
             <i class="glyphicon glyphicon-trash"></i>
         </a>
+        <span>{{article.created | date:'medium'}}</span>
        </div>
        <div>
         <div data-ng-init="setUp()">
@@ -41,7 +43,8 @@
 					</div>
 					 Progress {{i+1}} / {{splitArticle.length}}
 			</div>
-			{{article.title}} {{article.url}}
+			<span>Article Created By: {{article.user.username}} </span>
+			<span>{{article.url}}</span>
     </div>
 </section>
 
