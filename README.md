@@ -1,6 +1,7 @@
 # GlanceThrough
 
 GlanceThrough is speed reading application, that allows users to import articles from news sites.
+htpp://glancethrough.info
 
 ### Required API
 This app requires the alchemy api for the autofill to work.  A key can be gotten from the [Alchemy Website](http://www.alchemyapi.com).  This key should be placed in the app/controllers/articles.js.
